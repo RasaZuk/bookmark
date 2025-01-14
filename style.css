@@ -22,6 +22,7 @@ h1 {
     background: rgba(0, 0, 0, 0.5);
     border-radius: var(--border-radius);
     cursor: pointer;
+    text-align: center;
     text-transform: uppercase;
     width: 330px;
     margin: 20px auto 10px;
