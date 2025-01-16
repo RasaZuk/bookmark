@@ -22,13 +22,17 @@ window.addEventListener('click', (e) => (e.target === modal ? modal.classList.re
 function validate(nameValue, urlValue) {
     const expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
     const regex = new RegExp(expression);
-    if (urlValue.match(regex)) {
-        alert('match');
+    if (!nameValue || !urlValue) {
+        alert('Please submit values for both fields');
+        return false;
     }
     if (!urlValue.match(regex)) {
         alert('Please add a valid webside address');
         return false;
     }
+    //valid
+    return true;
+
 }
 
 //handle data from form
@@ -40,7 +44,9 @@ function storeBookmark(e) {
         urlValue = `https://${urlValue}`;
     }
     console.log(nameValue, urlValue);
-    validate(nameValue, urlValue);
+    if (!validate(nameValue, urlValue)) {
+        return false;
+    }
 }
 
 
