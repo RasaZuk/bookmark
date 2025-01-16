@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+SA&display=swap');
 
 :root {
-    --primary-color: #c7eac1;
+    --primary-color: #a2f693;
     --border-radius: 5px;
 }
 
@@ -145,6 +145,45 @@ h3 {
     background: whitesmoke;
 }
 
+
+/* Form */
+.form-group {
+    height: 55px;
+}
+
+.form-input {
+    width: 97%;
+    padding: 5px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    display: block;
+    outline: none;
+}
+
+.form-label {
+    color: var(--primary-color);
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    color: white;
+    background: var(--primary-color);
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: var(--border-radius);
+    margin-top: 10px;
+}
+
+button:hover {
+    filter: brightness(110%);
+}
+
+button:focus {
+    outline: none;
+}
+ 
 @media screen and (max-width: 600px) {
     .container {
         flex-direction: column;
