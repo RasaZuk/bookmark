@@ -34,7 +34,24 @@ function validate(nameValue, urlValue) {
     }
     //valid
     return true;
+}
 
+//fetch bookmarks
+function fetchBookmarks() {
+    //get bookmarks from localStorage if available
+    if (localStorage.getItem('bookmarks')) {
+        bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    } else {
+        //create bookmarks array in localStorage
+        bookmarks = [
+            {
+                name: 'Rasa Github',
+                ulr: 'https://github.com/RasaZuk',
+            },
+        ];
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    }
+    console.log(bookmarks);
 }
 
 //handle data from form
@@ -53,12 +70,14 @@ function storeBookmark(e) {
         url: urlValue,
     };
     bookmarks.push(bookmark);
-    console.log(bookmarks);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    fetchBookmarks();
     bookmarkForm.reset();
     websiteNameEl.focus();
 }
 
-
 //event listener
 bookmarkForm.addEventListener('submit', storeBookmark);
+
+//on load, fetch bookmarks
+fetchBookmarks();
