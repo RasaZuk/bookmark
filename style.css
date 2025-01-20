@@ -68,7 +68,7 @@ a:active {
     text-decoration: underline;
 }
 
-.fa-solid {
+.fa-times {
     float: right;
     cursor: pointer;
     z-index: 2;
